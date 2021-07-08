@@ -812,6 +812,12 @@ add_sentinel = false
 # default: false
 prefix_with_name = false
 
+# whether to insert an underscore between the enum name and variant name with
+# `prefix_with_name` enabled
+#
+# default: true
+prefix_underscore
+
 # Whether to emit enums using "enum class" when targeting C++.
 # default: true
 enum_class = true

@@ -1,0 +1,10 @@
+[export]
+prefix = "CF"
+
+[enum]
+# should result in "CFEnumNameVariantName"
+prefix_with_name = true
+prefix_underscore = false
+
+[export.rename]
+"B" = "AwesomeB"

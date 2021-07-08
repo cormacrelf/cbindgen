@@ -536,13 +536,17 @@ impl StructConfig {
 #[serde(deny_unknown_fields)]
 #[serde(default)]
 pub struct EnumConfig {
-    /// The rename rule to apply to the name of enum variants
+    /// The rename rule to apply to the name of enum variants, including (with prefix_with_name)
+    /// the prefixed enum name
     pub rename_variants: RenameRule,
     /// Whether to add a `Sentinel` value at the end of every enum
     /// This is useful in Gecko for IPC serialization
     pub add_sentinel: bool,
     /// Whether the enum variants should be prefixed with the enum name
     pub prefix_with_name: bool,
+    /// Whether, with prefix_with_name, an underscore should separate the enum name and the
+    /// variant name (default: true)
+    pub prefix_underscore: bool,
     /// Whether to generate static `::X(..)` constructors and `IsX()`
     /// methods for tagged enums.
     pub derive_helper_methods: bool,
@@ -581,6 +585,7 @@ impl Default for EnumConfig {
             rename_variants: RenameRule::None,
             add_sentinel: false,
             prefix_with_name: false,
+            prefix_underscore: true,
             derive_helper_methods: false,
             derive_const_casts: false,
             derive_mut_casts: false,
