@@ -128,7 +128,7 @@ impl Literal {
                 }
             }
             Literal::Path(ref mut name) => {
-                config.export.rename(name, IdentifierType::Constant);
+                // config.export.rename(name, IdentifierType::Path);
             }
             Literal::PostfixUnaryOp { ref mut value, .. } => {
                 value.rename_for_config(config);

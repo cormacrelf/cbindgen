@@ -14,6 +14,7 @@ pub enum IdentifierType<'a> {
     Type,
     Enum,
     Constant,
+    Path,
 }
 
 impl<'a> IdentifierType<'a> {
@@ -25,6 +26,7 @@ impl<'a> IdentifierType<'a> {
             IdentifierType::Type => "",
             IdentifierType::Enum => "",
             IdentifierType::Constant => "",
+            IdentifierType::Path => "",
         }
     }
 }
