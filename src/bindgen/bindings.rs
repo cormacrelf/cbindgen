@@ -284,14 +284,6 @@ impl Bindings {
             out.new_line();
         }
 
-        for constant in &self.constants {
-            if !constant.uses_only_primitive_types() {
-                out.new_line_if_not_start();
-                constant.write(&self.config, &mut out, None);
-                out.new_line();
-            }
-        }
-
         if !self.functions.is_empty() || !self.globals.is_empty() {
             if self.config.cpp_compatible_c() {
                 out.new_line_if_not_start();
@@ -344,6 +336,14 @@ impl Bindings {
 
             if self.config.cpp_compatible_c() {
                 out.write("#endif // __cplusplus");
+                out.new_line();
+            }
+        }
+
+        for constant in &self.constants {
+            if !constant.uses_only_primitive_types() {
+                out.new_line_if_not_start();
+                constant.write(&self.config, &mut out, None);
                 out.new_line();
             }
         }
